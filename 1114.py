@@ -8,8 +8,8 @@ class myGame:
 
 	def start():
 		pass
-	def _init_(self):
-		pass
+
+	
 
 class updownGame(myGame):
 	def _init_(self):
