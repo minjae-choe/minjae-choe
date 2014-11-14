@@ -98,7 +98,6 @@ for sheet_name, values in parse_xls(SourceFilePath+SourceFileName, 'utf-8'):
 					ws.write(input_row, 2, values[(row_idx, 2)])
 					ws.write(input_row, 3, values[(row_idx, 3)])
 					ws.write(input_row, 4, values[(row_idx, 4)])
-					input_row = input_row + 1
-
+					input_row   
 
 w.save('savedata.xls')
