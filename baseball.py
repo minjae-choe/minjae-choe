@@ -84,6 +84,10 @@ class baseballGame3(baseballGame):
         
         while True:
             an = raw_input("input:")
+            
+            if len(an) != 3:
+                continue
+            
         
             anlist = [int(an[0]),int(an[1]),int(an[2])]
         
