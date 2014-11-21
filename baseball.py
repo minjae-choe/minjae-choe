@@ -61,10 +61,25 @@ class baseballGame3(baseballGame):
 
     def start(self):
         
+        self.makehidden()        
+        
+        while True:
+            an = raw_input("input:")
+            
+            if not an.isdigit():
+                continue
+            
+            if len(an) != 3:
+                continue        
+        
+        
+        
+    def makehidden(self):    
         rn1 = random.randint(1,9)
         rn2=rn1
         rn3=rn1
-        
+    
+    
         while True:
             if rn1 == rn2:
                 rn2 = random.randint(1,9)
@@ -77,19 +92,19 @@ class baseballGame3(baseballGame):
             else:
                 break
             
+            self.rnlist.append(rn1)
+            self.rnlist.append(rn2)
+            self.rnlist.append(rn3)
+            
+            print self.rnlist
+            
+            
         rnlist= [rn1,rn2,rn3]
         #append는 몇개를 추가할 지 모를 때 사용한다
         
         print rnlist        
         
-        while True:
-            an = raw_input("input:")
-            
-            if not an.isdigit():
-                continue
-            
-            if len(an) != 3:
-                continue
+        
             
         
             anlist = [int(an[0]),int(an[1]),int(an[2])]
