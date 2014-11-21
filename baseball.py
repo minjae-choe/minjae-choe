@@ -85,6 +85,9 @@ class baseballGame3(baseballGame):
         while True:
             an = raw_input("input:")
             
+            if not an.isdigit():
+                continue
+            
             if len(an) != 3:
                 continue
             
