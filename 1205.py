@@ -95,3 +95,80 @@ print frame2.year
 
 print frame2.ix['three']
 
+frame2['debt'] = 16.5
+
+print frame2
+
+frame2['debt'] = np.arange(5.)
+
+print frame2
+
+val = Series([-1.2, -1.5, -1,7],
+             index=['two', 'four', 'five'])
+             
+frame2['debt'] = val
+
+print frame2
+
+frame2['eastern'] = (frame2.state == 'Ohio')
+
+print frame2
+
+del frame2['eastern']
+
+print frame2
+
+print frame2.T
+
+obj6 = Series(range(3),
+              index=['a','b','c'])
+index = obj6.index
+print index
+print index[1:]
+#index[1] = 'd'
+
+index = pd.Index(np.arange(3))
+
+obj7 = Series([1.5, -2.5, 0.],
+              index=index)
+              
+print obj7
+print obj7.index is index
+
+obj = Series([4.5, 7.2, -5.3, 3.6],
+             index=['d','b','a','c'])
+             
+print obj
+
+obj2 = obj.reindex(['a','b','c','d','e'])
+
+print obj2
+
+obj3 = oibj.reindex(['a','b','c','d','e'],
+                    fill_value=0)
+
+print obj3
+
+obj4 = Series(['blue', 'purple', 'yellow'],
+              index=[0,2,4])
+              
+obj5 = obj4.reindex([range(6),
+                    method='ffill')
+                    
+print obj5
+
+obj6 = obj4.reindex([range(6)],
+                    method='bfill')
+                    
+print obj6
+
+obj = Series(np.arange(5.),
+             index=['a','b','c','d','e])
+             
+new_obj = obj.drop('c')
+
+print new_obj
+
+
+
+                                                 
