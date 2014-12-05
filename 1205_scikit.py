@@ -12,3 +12,12 @@ digits = datasets.load_digits()
 print iris
 
 print digits
+
+from sklearn import svm
+from sklearn import datasets
+clf = svm.SVC()
+iris = datasets.load_iris()
+X, y = iris.data, iris.target
+clf.fit(X, y)  
+clf.predict(X)
+
