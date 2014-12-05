@@ -44,8 +44,10 @@ obj222 = (obj2[obj2>0])
 
 print obj222
 
+print ('b' in obj2)
 
+sdata = {'Ohio':35000, 'Texas':71000, 'Oregon':}
 
+obj3 = Series(data)
 
-
-
+print obj3
