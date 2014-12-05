@@ -18,6 +18,18 @@ from sklearn import datasets
 clf = svm.SVC()
 iris = datasets.load_iris()
 X, y = iris.data, iris.target
-clf.fit(X, y)  
-clf.predict(X)
+s = np.rint(iris.data.shape[0]*0.6)
+clf.fit(X[:s], y[:s])  
+clf.predict(X[s:])
 
+for i, ix in enumerate(y):
+    if ix == 0:
+        pass
+    elif ix == 1:
+        pass
+    else:
+        pass
+    
+a = np.array([[1, 2], [3, 4]])
+b = np.array([[5, 6]])
+np.concatenate((a, b), axis=0)
