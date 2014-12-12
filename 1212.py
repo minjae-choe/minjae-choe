@@ -1,85 +1,114 @@
-# -*- encoding: utf-8 -*-   
-import random     
-class myGame:       
-    def __init__(self, title):         self.title = title       
-    def start(self):         
-        pass      
-    def getTitle(self):         
-        return self.title     
-        
-        
- class updownGame(myGame):       
-     def __init__(self, title, lower=1, upper=9):         
-         myGame.__init__(self, title)         
-         self.lower = lower         
-         self.upper = upper       
-     def start(self):         
-         print 'Limit:', self.lower, self.upper           
-         rn = random.randint(self.lower, self.upper)           
-         while True:             
-             an = input("Input:")               
-             if an == rn:                 
-                 print "Right"                
-                 break            
-             elif an > rn:                 
-                 print "Down"            
-             else:                 
-                 print "Up"      
-     def setLimit(self, lower, upper):         
-         self.lower = lower         
-         self.upper = upper       
-     def getLimit(self):         
-         return self.lower, self.upper     
-         
- class baseballGame(myGame):       
-     def __init__(self, title):         
-         myGame.__init__= title     
-         
- class baseballGame3(baseballGame):       
-     def __init__(self, title):         
-         baseballGame.__init__=title               
-     def start(self):                   
-         rn1 = random.randint(1, 9)         
-         rn2 = rn1         
-         rn3 = rn1                   
-     while True:             
-         if rn1 == rn2:                 
-             rn2 = random.randint(1,9)             
-         else:                 
-             break                  
-     
-     while True:             
-         if rn1 == rn3 or rn2 == rn3:                 
-             rn3 = random.randint(1,9)             
-         else:                 
-             break                      
-     rnlist = [ rn1, rn2, rn3 ]                   
-     print rnlist                   
-     
-     while True:             
-         an = raw_input('input:')                           
-         anlist = [int(an[0]), int(an[1]), int(an[2])]                   
-         strike = 0            
-         ball = 0                           
-         for i in range(len(rnlist)):                 
-             for j in range(len(anlist)):                    
-                 if rnlist[i] == anlist[j] and i == j:                         
-                     strike = strike + 1                    
-                 if rnlist[i] == anlist[j] and i != j:                         
-                     ball = ball + 1                                                   
-                     print 'Strike:', strike, ' Ball:', ball                          
-                 if strike == 3:                 
-                     break                  
-                 
- class baseballGame4(baseballGame):       
-     def __init__(self):         
-         pass    
-     if __name__ == '__main__':
-     #    myclass = updownGame('gg') 
-     #    print myclass.getLimit() 
-     #    myclass.start() 
-     #    myclass.setLimit(10, 20) 
-     #    myclass.getTitle() 
-     #    myclass.start()      
-         myinst = baseballGame3('gg')     
-         myinst.start() 
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Dec 12 09:15:44 2014
+
+@author: user
+"""
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+fig = plt.figure()
+
+#ax = fig.add_subplot(1,1,1)
+##피규어라는 공간 크게 하나 들어가있음
+#ax1 = fig.add_subplot(2,2,1)
+##피규어가 2행 2열에 하나
+#ax2 = fig.add_subplot(2,2,2)
+#ax3 = fig.add_subplot(2,2,3)
+#ax4 = fig.add_subplot(2,2,4)
+
+#plt.plot(np.random.randn(50).cumsum(),'co--')
+## 제일 마지막 서브플롯에 자동으로 추가됨
+## c는 색깔,o는 포인트에 점 --는 점선, -는 실선
+#
+#_ = ax1.hist(np.random.randn(100),bins=20,color='k',alpha=0.3)
+##각 피규어 이름에 바로 접근가능, bins는 전체 구간을 몇개로 나눌 것이냐는 의미, 컬러의 k는 블랙, 알파는 투명도
+#ax2.scatter(np.arange(30),np.arange(30)+3*np.random.randn(30))
+##scatter은 산포도, 각각 x값과 y값을 준 것
+
+#fig, axes = plt.subplots(2,2)
+##2행 2열, 서브플롯을 한꺼번에 집어넣을 수도 있다
+#
+#print axes
+#
+#fig, axes = plt.subplots(2,2, sharex=True)
+## x축을 공유
+#print axes
+## y축을 공유
+#fig, axes = plt.subplots(2,2, sharey=True)
+#
+#print axes
+#
+#fig, axes = plt.subplots(2,2, sharex=True,sharey=True)
+#
+#for i in range(2):
+#    for j in range(2):
+#        axes[i,j].hist(np.random.randn(500),bins=50, color='k')
+#plt.subplots_adjust(wspace=0, hspace=0)
+##wspace와 hspace는 플롯 크기에 비례하게 피규어사이 공간을 띄워라, 위는 0이라서 피규어들 붙어있음
+#
+#data=np.random.randn(30).cumsum()
+#
+#plt.plot(data,'k--', label='Default')
+##점선형태, 일반적인 선
+#plt.plot(data, 'k-', drawstyle='steps-post',lavel='steps-post')
+##실선형태, 직선형태
+#plt.legend(loc='best')
+##그래프 이름 표시하기, best는 그래프랑 안 걸리는 최적의 위치 찾기
+
+fig = plt.figure()
+ax = fig.add_subplot(1,1,1)
+ax.plot(np.random.randn(1000).cumsum())
+#cumsum은 랜덤시켜 발생한 값을 앞에값들과 계속 더한값을 그래프에 찍는다
+tick = ax.set_xticks([0,250,500,750,1000])
+#표에 표시되는 간격을 직접 정해줄 수 있다
+labels = ax.set_xticklabels(['one','two','three','four','five'],rotation=30,fontsize='small')
+#그러한 표시되는 간격의 형태를 지정가능, rotation은 휘어지게)
+
+ax.set_title('My Plot')
+#전체 플롯에 이름 부과
+ax.set_xlabel('Stages')
+#x축에 이름
+ax.set_ylabel('values')
+
+
+a = np.arange(10)
+
+print a
+
+print a.cumsum()
+
+
+
+
+from datetime import datetime
+
+fig=plt.figure()
+ax= fig.add_subplot(1,1,1)
+
+data=pd.read_csv('spx.csv',index_col=0,parse_dates=True)
+spx = data['SPX']
+
+spx.plot(ax=ax, style='k--')
+
+crisis_data = [
+    (datetime(2007,10,11), 'Peak of bull market'),
+    (datetime(2008,3,12), 'Bear Stearns Fails'),
+    (datetime(2008,9,15), 'Lehman Bankruptcy')
+]
+
+for date, label in crisis_data:
+    ax.annotate(label,
+                xy=(date, spx.asof(date)+50),
+                xytext=(date, spx.asof(date)+200),
+                arrowprops=dict(facecolor='black'),
+                horizontalalignment='left',
+                verticalalignment='top')
+ 
+                
+ax.set_xlim(['1/1/2007','1/1/2011'])
+ax.set_ylim([600,1800])
+
+ax.set_title('Important dates in 2008-2009 financial crisis')
